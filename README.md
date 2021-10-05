@@ -31,7 +31,7 @@ If you want subs to work with Anime4kCPP, get AssFilter
 ## Configuration
 -------------------------
 After all of these are installed and downloaded, you need to add them to MPC-HC. First off we need to add the external filters for FFDShow Raw Video Filter, Anime4KCPP, AssFilter and madVR
-- MPC-hc -> Hit O -> External Filters -> Add filter, add ffdshow raw video filter, Anime4KCPP (browse), AssFilter and madVR (browse)
+- MPC-hc -> Hit O -> External Filters -> Add filter, add ffdshow raw video filter, Anime4KCPP (browse), AssFilter and madVR (browse). See all to Prefer.
 - ![image](https://user-images.githubusercontent.com/706874/136077969-9f9bb239-4f93-4359-abf0-b9ee997fc0c7.png)
 
 Next, head over to the Output to madVR. If you need subtitle support, choose AssFilter in Subtitle Renderer.
