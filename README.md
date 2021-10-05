@@ -19,27 +19,40 @@ Should go without saying, but we'll state it still: Upscaling AND interpolation 
 - Install ffdshow x64 (https://sourceforge.net/projects/ffdshow-tryout/files/Official%20releases/64-bit/)
 - Install Avisynth+ x64 (https://github.com/AviSynth/AviSynthPlus/releases/)
 - Get madVR (http://madshi.net/madVR.zip)
-- Get Anime4kCPP for Directshow (DSFilter) (https://github.com/TianZerL/Anime4KCPP/releases/tag/v2.5.0)
-- Get InterFrame2.8.2 (https://www.spirton.com/interframe/)
-- Make sure you have svp_flow_1_x64.dll
-- Make sure you have svp_flow_2_x64.dll
+- Get Anime4kCPP for Directshow (DSFilter) (https://github.com/TianZerL/Anime4KCPP/releases/)
+- Get InterFrame2.8.2 (https://www.spirton.com/interframe/) (A copy can be found in the libraries folder)
+
+Next you'll need SVP flow. These are based off MVTools 2.5. You'll need the correct version for them to work (4.2.0.142), since this version doesn't require SVP Manager
+- Get svp_flow_1_x64.dll 4.2.0.142 (http://avisynth.nl/index.php/SVPflow) (A copy can be found in the libraries folder)
+- Make sure you have svp_flow_2_x64.dll 4.2.0.142 (http://avisynth.nl/index.php/SVPflow) (A copy can be found in the libraries folder)
 
 If you want subs to work with Anime4kCPP, get AssFilter
 
 ## Configuration
 -------------------------
-- MPC-hc -> Hit O -> Output -> madVR
+After all of these are installed and downloaded, you need to add them to MPC-HC. First off we need to add the external filters for FFDShow Raw Video Filter, Anime4KCPP, AssFilter and madVR
 - MPC-hc -> Hit O -> External Filters -> Add filter, add ffdshow raw video filter, Anime4KCPP (browse), AssFilter and madVR (browse)
-- Set all these to prefer
+- ![image](https://user-images.githubusercontent.com/706874/136077969-9f9bb239-4f93-4359-abf0-b9ee997fc0c7.png)
+
+Next, head over to the Output to madVR. If you need subtitle support, choose AssFilter in Subtitle Renderer.
+- MPC-hc -> Hit O -> Output -> madVR
+![image](https://user-images.githubusercontent.com/706874/136078160-83fe22fd-5544-45e0-8281-365e52dc0eec.png)
+
+
+- Set all these filters to prefer
 - Ok
 - Open a video
-- Right click -> Filters -> FFDSHOW -> Check AviSynth and set filter in textbox to
+- Right click video frame -> Filters -> ffdshow raw video filter
+
+![image](https://user-images.githubusercontent.com/706874/136078286-fd32d3fa-947e-490c-b6c9-c3b5c2a3727c.png)
+
+ In the new window -> Check AviSynth and set filter in textbox to
 
 ```
 SetMemoryMax(1024)
-LoadPlugin("F:\Software\Video Interpolation\svpflow1_64.dll")
-LoadPlugin("F:\Software\Video Interpolation\svpflow2_64.dll")
-Import("F:\Software\Video Interpolation\InterFrame2.avsi")
+LoadPlugin("YOUR\PATH\TO\svpflow1_64.dll")
+LoadPlugin("YOUR\PATH\TO\svpflow2_64.dll")
+Import("YOUR\PATH\TO\InterFrame2.avsi")
 SetFilterMTMode("FFVideoSource", 1)
 ffdshow_source()
 SetFilterMTMode("FFVideoSource", 2)
@@ -49,6 +62,11 @@ InterFrame(Preset="Fast", Tuning="Animation", GPU=true, Cores=Cores)
 Prefetch(4)
 ```
 
+![image](https://user-images.githubusercontent.com/706874/136078534-f07bc527-ab65-4b67-a5f7-af4672cd20d2.png)
+
 Remember to replace paths of Interframe2.avsi, svpflow1_64.dll and svpflow2_64.dll to the correct paths.
 
-Done
+Verify that FFDShow is running by looking in your task bar
+![image](https://user-images.githubusercontent.com/706874/136078760-2dec18b1-9410-4948-8daa-8540ac1d983d.png)
+
+Enjoy! Your video should be both upscaled and running way smoother! Your apartment might also get toastier as an added bonus.
