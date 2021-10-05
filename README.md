@@ -1,5 +1,7 @@
-# anime4k-60fps
-An attempt at a free and approachable guide to upscaling your anime and interpolating them on-the-fly to 60FPS. Yeah!
+![shingeki-no-kyojin](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbf%2F59%2Fba%2Fbf59bab0a7e667f437daec28fae065df.gif&f=1&nofb=1)
+
+# Introduction
+This is an ttempt and work in progress at a free and approachable way to upscaling your anime and interpolating them on-the-fly to 60FPS. Yeah!
 
 As you may already know, there are various solutions out there that help you interpolate on-the-fly to higher framerates. However most of them are paid solutions with limitations. Searching the web for how to do this yourself is a painstakingly hard effort if you have no experience and further still requires a long and tedious path to get right. And while these solutions do interpolation, they don't upscale. What if you want both? This is an attempt at a guide that allows you to upscale video using Anime4k and Interframe to get both upscaled video in glorious 60FPS.
 
@@ -7,11 +9,11 @@ This guide assumes x64 libraries for all programs and the use of a player capabl
 
 Ready to get your toes wet? Let's dive in!
 
-Requirements
+## Requirements
 ------------
 Should go without saying, but we'll state it still: Upscaling AND interpolation requires that you at least have some sort of modern hardware. For this testing we used a RTX 3060, but you may get away with less. Memory and bandwidth are the prime bottlenecks here, so anything under 6GB VRAM will have you struggle.
 
-Install and get libraries
+## Install and get libraries
 -------------------------
 - Install mpc-hc x64 (This fork https://github.com/clsid2/mpc-hc)
 - Install ffdshow x64 (https://sourceforge.net/projects/ffdshow-tryout/files/Official%20releases/64-bit/)
@@ -24,7 +26,7 @@ Install and get libraries
 
 If you want subs to work with Anime4kCPP, get AssFilter
 
-Configuration
+## Configuration
 -------------------------
 - MPC-hc -> Hit O -> Output -> madVR
 - MPC-hc -> Hit O -> External Filters -> Add filter, add ffdshow raw video filter, Anime4KCPP (browse), AssFilter and madVR (browse)
